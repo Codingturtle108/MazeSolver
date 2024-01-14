@@ -5,7 +5,7 @@ from queue import Queue
 from bfsolver import bfs
 from PathConstructor import constructor
 from pixelClass import pixel
-Maze = cv.imread('TestMazes/normal.png')
+Maze = cv.imread('TestMazes/combo6k.png')
 height,width,_= Maze.shape
 for i in range(width):
     if sum(Maze[0][i])==255*3:
