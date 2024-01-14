@@ -1,7 +1,6 @@
 def bfs(queue,target):
     while not queue.empty():
         pixel=queue.get()
-        print(pixel.cord)
         valid_neighbours = [cell for cell in pixel.neighbours if cell is not None]
         for cell in valid_neighbours:
             if cell.cord == target and cell.visited == 0:
@@ -10,7 +9,6 @@ def bfs(queue,target):
                 path = [cell.cord]
                 while cell.parent != cell:
                     cell = cell.parent
-                    print(cell,cell.parent,cell.cord)
                     path.append(cell.cord)
                 path.reverse()  # Reverse the path to have it from start to target
                 print(path)

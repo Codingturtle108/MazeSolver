@@ -5,10 +5,15 @@ from queue import Queue
 from bfsolver import bfs
 from PathConstructor import constructor
 from pixelClass import pixel
-Maze = cv.imread('TestMazes/normal.png')
-start = (4,0)
-target = (32,40)
+Maze = cv.imread('TestMazes/tiny.png')
 height,width,_= Maze.shape
+for i in range(width):
+    if sum(Maze[0][i])==255*3:
+        start = (i,0)
+for j in range(height):
+    if sum(Maze[height-1][j])==255*3:
+        target = (j,height-1)
+print(start,target)
 def Pixel_Array(height,width):
     PixArray = [[pixel(0, 0, Maze) for _ in range(width)] for _ in range(height)]
     # PixArray= [[pixel(0,0,Maze)]*width]*height
@@ -27,10 +32,6 @@ def Pixel_Array(height,width):
                 PixArray[i][j].neighbours[3] = PixArray[i][j+1]
     return PixArray
 Object_Array=Pixel_Array(height,width)
-for i in range(width):
-    for j in range(height):
-        cell = Object_Array[i][j]
-        print(cell.cord,cell.color,Maze[i,j])
 pix_queue =Queue()
 pix_queue.put(Object_Array[3][0])
 path = bfs(pix_queue,target)
