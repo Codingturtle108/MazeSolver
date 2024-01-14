@@ -5,9 +5,9 @@ from queue import Queue
 from bfsolver import bfs
 from PathConstructor import constructor
 from pixelClass import pixel
-Maze = cv.imread('TestMazes/tiny.png')
-start = (3,0)
-target = (7,9)
+Maze = cv.imread('TestMazes/normal.png')
+start = (4,0)
+target = (32,40)
 height,width,_= Maze.shape
 def Pixel_Array(height,width):
     PixArray = [[pixel(0, 0, Maze) for _ in range(width)] for _ in range(height)]
